@@ -12,13 +12,13 @@ function Navbar() {
   };
 
   return (
-    <nav className=' h-auto md:h-24 p-2 bg-white-200 max-w-6xl mx-auto flex justify-between md:items-center'>
+    <nav className=' h-auto md:h-24 p-2 bg-white-200  mx-auto flex justify-around md:items-center'>
       <Link to='/'>
         <h1>Kreator</h1> 
       </Link>
       <div
         className={
-          togglerNav ? 'flex flex-col gap-4 md:inline' : 'hidden md:inline'
+          togglerNav ? 'flex flex-col p-4 gap-4 md:inline' : 'hidden md:inline'
         }
       >
         <NavLink className='nav-link' onClick={clickHandler} to='/'>
