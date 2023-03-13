@@ -123,12 +123,12 @@ export default function Expenditure(){
         
         
         <div className='mb-4'>
-          <label htmlFor="amount">Total amount</label>
-          <input type="number" name="amount" id="amount"
-            className={`block w-full rounded border py-1 px-2 ${formik.touched.amount && formik.errors.amount ? 'border-red-400' : 'border-gray-300'}`}
-            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.amount} />
-          {formik.touched.amount && formik.errors.amount && (
-            <span className='text-red-400'>{formik.errors.amount}</span>
+          <label htmlFor="totalAmount">Total Amount</label>
+          <input type="number" name="totalAmount" id="totalAmount"
+            className={`block w-full rounded border py-1 px-2 ${formik.touched.totalAmount && formik.errors.totalAmount ? 'border-red-400' : 'border-gray-300'}`}
+            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.totalAmount} />
+          {formik.touched.totalAmount && formik.errors.totalAmount && (
+            <span className='text-red-400'>{formik.errors.totalAmount}</span>
           )}
         </div>
         <div className='text-center'>
