@@ -1,6 +1,8 @@
 import { useFormik } from 'formik';
 
+import axios from 'axios'
 
+// import {useState} from 'react'
 
 const expenditureType=["Expenditure","Monthly salary"]
 const amountType=["UPI","Cash","Credit/Debit"]
@@ -14,12 +16,27 @@ export default function Expenditure(){
           amountType: amountType[0],
           vendor:'',
           quantity:'',
-          gsttype:gstType[0],
+          gstType:gstType[0],
           totalAmount:''
         },
         onSubmit: function (values) {
             alert(`You are registered! date: ${values.date}. Expenditure: ${values.expenditureType}.  
             totalAmount: ${values.amount}`);
+            console.log(values);
+            const data={
+              Date: values.date,
+              expenditureType:values.expenditureType,
+              productDetails:values.productDetails,
+              amountType:values.amountType,
+              vendor:values.vendor,
+              quantity:values.quantity,
+              gstType:values.gstType,
+              totalAmount:values.totalAmount 
+            }
+            axios.post('https://sheet.best/api/sheets/6576816a-43cb-403f-888b-7bccb4fe2b70',data).then((response)=>{
+              console.log(response);
+              
+            })
         }
       })
 
@@ -28,7 +45,7 @@ export default function Expenditure(){
       <form onSubmit={formik.handleSubmit} className="max-w-lg mx-auto bg-white rounded shadow-lg mt-7 p-3">
       <h1 className='text-3xl mb-3 text-center'>Expenditure</h1>
         <div className='mb-4'>
-          <label for="date">Date</label>
+          <label htmlFor="date">Date</label>
           <input type="date" name="date" id="date" 
             className={`block w-full rounded border py-1 px-2 ${formik.touched.name && formik.errors.name ? 'border-red-400' : 'border-gray-300'}`}
             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.date} />
@@ -37,7 +54,7 @@ export default function Expenditure(){
           )}
         </div>
         <div className='mb-4'>
-          <label for="expenditureType">Expenditure Type</label>
+          <label htmlFor="expenditureType">Expenditure Type</label>
           <select name="expenditureType" id="expenditureType"
             className={`block w-full rounded border py-1 px-2 ${formik.touched.expenditureType && formik.errors.expenditureType ? 'border-red-400' : 'border-gray-300'}`}
             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.expenditureType} >
@@ -50,7 +67,7 @@ export default function Expenditure(){
           )}
         </div>
         <div className='mb-4'>
-          <label for="productDetails">Product Details</label>
+          <label htmlFor="productDetails">Product Details</label>
           <input type="text" name="productDetails" id="productDetails" 
             className={`block w-full rounded border py-1 px-2 ${formik.touched.name && formik.errors.name ? 'border-red-400' : 'border-gray-300'}`}
             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.productDetails} />
@@ -59,7 +76,7 @@ export default function Expenditure(){
           )}
         </div>
         <div className='mb-4'>
-          <label for="amountType">Amount Type</label>
+          <label htmlFor="amountType">Amount Type</label>
           <select name="amountType" id="amountType"
             className={`block w-full rounded border py-1 px-2 ${formik.touched.amountType && formik.errors.amountType ? 'border-red-400' : 'border-gray-300'}`}
             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.amountType} >
@@ -72,7 +89,7 @@ export default function Expenditure(){
           )}
         </div>
         <div className='mb-4'>
-          <label for="vendor">Vendor name</label>
+          <label htmlFor="vendor">Vendor name</label>
           <input type="text" name="vendor" id="vendor" 
             className={`block w-full rounded border py-1 px-2 ${formik.touched.name && formik.errors.name ? 'border-red-400' : 'border-gray-300'}`}
             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.vendor} />
@@ -81,7 +98,7 @@ export default function Expenditure(){
           )}
         </div>
         <div className='mb-4'>
-          <label for="quantity">Quantity</label>
+          <label htmlFor="quantity">Quantity</label>
           <input type="number" name="quantity" id="quantity" 
             className={`block w-full rounded border py-1 px-2 ${formik.touched.name && formik.errors.name ? 'border-red-400' : 'border-gray-300'}`}
             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.quantity} />
@@ -90,7 +107,7 @@ export default function Expenditure(){
           )}
         </div>
         <div className='mb-4'>
-          <label for="gstType">GST Type</label>
+          <label htmlFor="gstType">GST Type</label>
           <select name="gstType" id="gstType"
             className={`block w-full rounded border py-1 px-2 ${formik.touched.gstType && formik.errors.gstType ? 'border-red-400' : 'border-gray-300'}`}
             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.gstType} >
@@ -106,7 +123,7 @@ export default function Expenditure(){
         
         
         <div className='mb-4'>
-          <label for="amount">Total amount</label>
+          <label htmlFor="amount">Total amount</label>
           <input type="number" name="amount" id="amount"
             className={`block w-full rounded border py-1 px-2 ${formik.touched.amount && formik.errors.amount ? 'border-red-400' : 'border-gray-300'}`}
             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.amount} />
