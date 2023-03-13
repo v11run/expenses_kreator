@@ -41,8 +41,8 @@ export default function Expenditure(){
       })
 
     return(
-        <div className="bg-blue-300 min-w-screen min-h-screen overflow-x-hidden">
-      <form onSubmit={formik.handleSubmit} className="max-w-lg mx-auto bg-white rounded shadow-lg mt-7 p-3">
+        <div className="bg-white-300 min-w-screen min-h-screen overflow-x-hidden">
+      <form onSubmit={formik.handleSubmit} className="max-w-lg mx-auto  rounded shadow-lg mt-7 p-3">
       <h1 className='text-3xl mb-3 text-center'>Expenditure</h1>
         <div className='mb-4'>
           <label htmlFor="date">Date</label>
