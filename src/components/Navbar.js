@@ -12,7 +12,7 @@ function Navbar() {
   };
 
   return (
-    <nav className=' h-auto md:h-24 p-2 bg-green-600 text-white font-bold text-xl mx-auto flex justify-around md:items-center'>
+    <nav className=' h-auto md:h-24 p-2 bg-black text-white font-bold text-xl mx-auto flex justify-around md:items-center'>
       <Link to='/'>
         <h1>Kreator</h1> 
       </Link>
